@@ -1,32 +1,54 @@
-import React from 'react'
+import React from "react";
 import { FaCheck } from "react-icons/fa";
 
-export default class NoteIdentity extends React.PureComponent{
-	render(){
-		return(
-			<div style={{flexDirection: 'row'}}>
-	          <div style={{padding: '1vw', margin: 5, borderRadius: 5, backgroundColor: 'rgba(255,255,255,0.1)', display: 'inline-block', borderColor: 'rgba(255,255,255,0.2)', borderWidth: 1}}>
-	            <p style={{margin: 0}}>{this.props.url}</p>
-	          </div>
+export default class NoteIdentity extends React.PureComponent {
+  render() {
+    return (
+      <div style={styles.contaier}>
+        <div style={styles.urlStrip}>
+          <p style={styles.noMargin}>{this.props.url}</p>
+        </div>
 
-	          <div style={{display: 'inline-block'}}>
-		          <button 
-		          onClick={this.props.copy}
-		          style={{padding: '1vw', margin: 5, borderRadius: 5, display: 'flex', flexDirection: 'row', backgroundColor: 'rgba(255,255,255,0.0)', borderWidth: 0, outline: 'none'}}>
-		            <p style={{margin: 0, color: 'white', fontWeight: '600'}}>
-		            	{this.props.copied?
-		            		'copied':
-		            		'copy'
-		            	}
-		            </p>
-		            {this.props.copied && 
-	            		<div style={{marginLeft: 6}}>
-	            			<FaCheck color={'white'}/>
-	            		</div>
-	            	}
-		          </button>
-	          </div>
-	        </div>
-	    )
-	}
+        <div style={styles.inline}>
+          <button onClick={this.props.copy} style={styles.button}>
+            <p style={styles.copyLabel}>
+              {this.props.copied ? "copied" : "copy"}
+            </p>
+            {this.props.copied && (
+              <div style={styles.iconContainer}>
+                <FaCheck color={"white"} />
+              </div>
+            )}
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
+
+const styles = {
+  contaier: { flexDirection: "row" },
+  urlStrip: {
+    padding: "1vw",
+    margin: 5,
+    borderRadius: 5,
+    backgroundColor: "rgba(255,255,255,0.1)",
+    display: "inline-block",
+    borderColor: "rgba(255,255,255,0.2)",
+    borderWidth: 1,
+  },
+  noMargin: { margin: 0 },
+  button: {
+    padding: "1vw",
+    margin: 5,
+    borderRadius: 5,
+    display: "flex",
+    flexDirection: "row",
+    backgroundColor: "rgba(255,255,255,0.0)",
+    borderWidth: 0,
+    outline: "none",
+  },
+  copyLabel: { margin: 0, color: "white", fontWeight: "600" },
+  inline: { display: "inline-block" },
+  iconContainer: { marginLeft: 6 },
+};
