@@ -1,15 +1,12 @@
 import React from 'react'
-import { FaLock, FaCheck } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa";
 
 export default class NoteIdentity extends React.PureComponent{
 	render(){
 		return(
 			<div style={{flexDirection: 'row'}}>
-	          <div style={{padding: '1vw', margin: 5, display: 'inline-block'}}>
-	            <FaLock/>
-	          </div>
 	          <div style={{padding: '1vw', margin: 5, borderRadius: 5, backgroundColor: 'rgba(255,255,255,0.1)', display: 'inline-block', borderColor: 'rgba(255,255,255,0.2)', borderWidth: 1}}>
-	            <p style={{margin: 0}}>https://notesapp.com/aaf8941fgf141jhf1</p>
+	            <p style={{margin: 0}}>{this.props.url}</p>
 	          </div>
 
 	          <div style={{display: 'inline-block'}}>
