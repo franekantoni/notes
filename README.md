@@ -13,3 +13,5 @@ Client built with React, backend build with AWS Lambda, DynamoDB and APIGateway.
 
 
 `./src` folder contains all the React code.
+
+Interface optimized for desktop users.
