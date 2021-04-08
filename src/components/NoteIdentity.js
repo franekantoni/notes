@@ -6,7 +6,7 @@ export default class NoteIdentity extends React.PureComponent {
     return (
       <div style={styles.contaier}>
         <div style={styles.urlStrip}>
-          <p style={styles.noMargin}>{this.props.url}</p>
+          <p style={styles.url}>{this.props.url}</p>
         </div>
 
         <div style={styles.inline}>
@@ -37,7 +37,7 @@ const styles = {
     borderColor: "rgba(255,255,255,0.2)",
     borderWidth: 1,
   },
-  noMargin: { margin: 0 },
+  url: { margin: 0, fontSize: "calc(10px + 1vmin)"},
   button: {
     padding: "1vw",
     margin: 5,

@@ -21,7 +21,7 @@ export default class PasswordInput extends React.PureComponent {
             </p>
           )}
           {this.props.wrongPassword && (
-            <p style={styles.wrongPasswordLabel}>wrong password</p>
+            <p style={styles.wrongPasswordLabel}>wrong password or object doesn't extis</p>
           )}
         </div>
         <div style={styles.center}>
