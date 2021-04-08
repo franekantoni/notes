@@ -1,17 +1,20 @@
 import json
-import boto3
 import time
 from hashlib import sha256
+
+import boto3
 
 dynamodb = boto3.resource('dynamodb')
 table = dynamodb.Table('notes')
 
 def lambda_handler(event, context):
+    #load params
     body = json.loads(event['body']) 
     key = {
         'pk': body['pk'],
         'sk': body['sk']
     }
+    #update timestamp
     response = table.update_item(
         Key=key,
         UpdateExpression="set untilTimestamp = :r",
@@ -20,6 +23,7 @@ def lambda_handler(event, context):
         },
         ReturnValues="UPDATED_NEW"
     )
+    #respond
     return {
         'statusCode': 200,
         'headers': {
